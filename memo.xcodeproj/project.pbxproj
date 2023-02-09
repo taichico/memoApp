@@ -15,6 +15,10 @@
 		A29C14942993685E00E220EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C14932993685E00E220EE /* HomeViewController.swift */; };
 		A29C14962993878400E220EE /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C14952993878400E220EE /* FileManager.swift */; };
 		A29C14BF2994B39C00E220EE /* tableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C14BE2994B39C00E220EE /* tableVIew.swift */; };
+		A29C15152994EF7200E220EE /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C15142994EF7200E220EE /* Presenter.swift */; };
+		A29C15172994F02E00E220EE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C15162994F02E00E220EE /* Model.swift */; };
+		A29C15192994F25B00E220EE /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C15182994F25B00E220EE /* TextView.swift */; };
+		A29C151B2994F54C00E220EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C151A2994F54C00E220EE /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		A29C14932993685E00E220EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A29C14952993878400E220EE /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		A29C14BE2994B39C00E220EE /* tableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableVIew.swift; sourceTree = "<group>"; };
+		A29C15142994EF7200E220EE /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		A29C15162994F02E00E220EE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A29C15182994F25B00E220EE /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		A29C151A2994F54C00E220EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		A29C147D299256F100E220EE /* memo */ = {
 			isa = PBXGroup;
 			children = (
+				A29C15102994EF1900E220EE /* MVP */,
 				A29C14922993683A00E220EE /* ViewController */,
 				A29C149729938B9A00E220EE /* extention */,
 				A29C1480299256F100E220EE /* SceneDelegate.swift */,
@@ -85,8 +94,35 @@
 			children = (
 				A29C14952993878400E220EE /* FileManager.swift */,
 				A29C14BE2994B39C00E220EE /* tableVIew.swift */,
+				A29C15182994F25B00E220EE /* TextView.swift */,
+				A29C151A2994F54C00E220EE /* ViewController.swift */,
 			);
 			path = extention;
+			sourceTree = "<group>";
+		};
+		A29C15102994EF1900E220EE /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				A29C15122994EF3C00E220EE /* Model */,
+				A29C15112994EF2000E220EE /* Presenter */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		A29C15112994EF2000E220EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A29C15142994EF7200E220EE /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A29C15122994EF3C00E220EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A29C15162994F02E00E220EE /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,12 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29C151B2994F54C00E220EE /* ViewController.swift in Sources */,
 				A29C14962993878400E220EE /* FileManager.swift in Sources */,
+				A29C15152994EF7200E220EE /* Presenter.swift in Sources */,
 				A29C1483299256F100E220EE /* ViewController.swift in Sources */,
 				A29C147F299256F100E220EE /* AppDelegate.swift in Sources */,
 				A29C1481299256F100E220EE /* SceneDelegate.swift in Sources */,
 				A29C14942993685E00E220EE /* HomeViewController.swift in Sources */,
+				A29C15192994F25B00E220EE /* TextView.swift in Sources */,
 				A29C14BF2994B39C00E220EE /* tableVIew.swift in Sources */,
+				A29C15172994F02E00E220EE /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

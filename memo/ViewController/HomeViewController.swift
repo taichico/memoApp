@@ -1,12 +1,18 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var presenter: PresenterInput!
+    
     var rightButton: UIBarButtonItem!
     var leftButton: UIBarButtonItem!
     var memoTableView = UITableView()
     var readFile: String
     var items: [String] = []
     var flag = false
+    
+    func inhect(presenter: Presenter) {
+        self.presenter = presenter
+    }
     
     init() {
         readFile = FileManager.default.readingFile() ?? ""
@@ -35,10 +41,9 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftButton
         view.addSubview(memoTableView)
     }
-    //配列になったやつを削除
+
     override func viewWillAppear(_ animated: Bool) {
         readFile = FileManager.default.readingFile() ?? ""
-        
         items = readFile.components(separatedBy: "\n") ?? []
         print(items, "items")
         print(items.joined(separator: "\n"))
@@ -46,11 +51,11 @@ class HomeViewController: UIViewController {
     }
     
     @objc func rightClick() {
-        let second = ViewController()
-        navigationController?.pushViewController(second, animated: true)
+        presenter.presenter()
     }
     
     @objc func leftClick() {
+        presenter
         flag = !flag
         memoTableView.isEditing = flag ? true : false
     }
