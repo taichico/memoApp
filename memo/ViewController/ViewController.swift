@@ -1,24 +1,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let textView = UITextView()
-    let button = UIButton()
+    var home = HomeViewController()
+    static var readFile: String = ""
+    let textView: UITextView = {
+        var textView = UITextView()
+        textView.keyboardType = .default
+        textView.layer.cornerRadius = 5
+        textView.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
+        textView.backgroundColor = .gray
+        return textView
+    }()
+    let saveButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("save", for: .normal)
+        button.backgroundColor = .red
+        return button
+    }()
+    var navButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         textView.delegate = self
-        textView.keyboardType = .default
-        textView.layer.cornerRadius = 5
-        textView.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
-        textView.backgroundColor = .cyan
-        textView.text = "TextView"
         view.addSubview(textView)
-        
+        view.addSubview(saveButton)
+
+        navButton = UIBarButtonItem(title: "メモ一覧", style: .done, target: self, action: #selector(click))
+        // タップされたときのaction
+        saveButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
-    
+
     func setupViews() {
         let safeArea = view.safeAreaInsets
         
@@ -34,11 +46,24 @@ class ViewController: UIViewController {
         let textView_Y = view.bounds.height / 2 - textView_H + safeArea.bottom
         textView.frame.size = CGSize(width: textView_W, height: textView_H)
         textView.frame.origin = CGPoint(x: textView_X, y: textView_Y)
+        saveButton.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        saveButton.center = CGPoint(x: view.center.x, y: textView.bounds.height * 1.5)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupViews()
+    }
+    
+    @objc func buttonTapped() {
+        FileManager.default.createFile()
+        FileManager.default.appendText(string: textView.text)
+        print("button tap")
+    }
+    
+    @objc func click() {
+        let third = HomeViewController()
+        navigationController?.pushViewController(third, animated: true)
     }
 }
 
